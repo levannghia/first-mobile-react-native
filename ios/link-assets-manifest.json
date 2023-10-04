@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/images/bg-welcome.jpg",
+      "sha1": "ddb04c1616e3cf4ccb4040cd597c83f35076d4c7"
+    },
+    {
+      "path": "assets/images/fire.png",
+      "sha1": "cd69b446c2ce29ffa5e9bed13b899af8e519f551"
+    },
+    {
+      "path": "assets/images/question.png",
+      "sha1": "4b6310ffbfa5f9f46479baf11a0e9353176e1a9b"
+    }
+  ]
+}
