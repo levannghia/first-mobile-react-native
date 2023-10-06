@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 import {AppRegistry} from 'react-native';
-import { WelcomeScreen, LoginScreen } from './screens';
+import { WelcomeScreen, LoginScreen, RegisterScreen } from './screens';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => () => <LoginScreen/>);
+AppRegistry.registerComponent(appName, () => () => <RegisterScreen/>);
