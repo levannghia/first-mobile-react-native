@@ -7,3 +7,7 @@ export const isValidEmail = (stringEmail) => {
 export const isValidPassword = (stringPassword) => {
     return stringPassword.length >= 6;
 }
+
+export const isValidConfirmPassword = (stringPassword, stringRePassword) => {
+    return stringPassword === stringRePassword;
+}

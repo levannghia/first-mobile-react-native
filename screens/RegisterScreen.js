@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { Image, Text, TextInput, TouchableOpacity, View, Keyboard, KeyboardAvoidingView, Platform } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import {isValidEmail, isValidPassword} from "../utilies/Validations"
+import { isValidEmail, isValidPassword, isValidConfirmPassword } from "../utilies/Validations"
 import { fontSizes } from "../constants"
 
 function RegisterScreen(props) {
@@ -10,10 +10,14 @@ function RegisterScreen(props) {
     //set state validate
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
+    const [rePasswordError, setRePasswordError] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [rePassword, setRePassword] = useState('')
     const isValidation = () => {
-        if(email.length > 0 && password.length > 0 && isValidEmail(email) === true && isValidPassword(password) === true){
+        if (email.length > 0 && password.length > 0 && isValidEmail(email) === true
+            && isValidPassword(password) === true
+            && isValidConfirmPassword(password, rePassword) === true) {
             return true
         }
         return false
@@ -67,7 +71,7 @@ function RegisterScreen(props) {
                         style={{ color: 'black', borderBottomColor: '#ED6263', borderBottomWidth: 1, height: 35 }}
                         placeholder="example@gmail.com" placeholderTextColor={"rgba(0, 0, 0, 0.6)"}>
                     </TextInput>
-                   <Text style={{color: 'red', fontSize: fontSizes.h6, marginTop: 5}}>{emailError}</Text>
+                    <Text style={{ color: 'red', fontSize: fontSizes.h6, marginTop: 5 }}>{emailError}</Text>
                 </View>
                 <View style={{ marginHorizontal: 15 }}>
                     <Text style={{ color: '#ED6263', fontSize: fontSizes.h5 }}>Password:</Text>
@@ -75,15 +79,15 @@ function RegisterScreen(props) {
                         setPasswordError(isValidPassword(text) === true ? '' : 'Password chua it nha 6 ky tu')
                         setPassword(text)
                     }} style={{ color: 'black', borderBottomColor: '#ED6263', borderBottomWidth: 1, height: 35 }} secureTextEntry={true} placeholder="Enter your password" placeholderTextColor={"rgba(0, 0, 0, 0.6)"}></TextInput>
-                  <Text style={{color: 'red', fontSize: fontSizes.h6, marginTop: 5}}>{passwordError}</Text>
+                    <Text style={{ color: 'red', fontSize: fontSizes.h6, marginTop: 5 }}>{passwordError}</Text>
                 </View>
                 <View style={{ marginHorizontal: 15, marginTop: 15, marginBottom: 40 }}>
                     <Text style={{ color: '#ED6263', fontSize: fontSizes.h5 }}>Retype password:</Text>
                     <TextInput onChangeText={(text) => {
-                        setPasswordError(isValidPassword(text) === true ? '' : 'Password chua it nha 6 ky tu')
-                        setPassword(text)
+                        setRePasswordError(isValidConfirmPassword(password,text) === true ? '' : 'Mat khau xac nhan khong chinh xac')
+                        setRePassword(text)
                     }} style={{ color: 'black', borderBottomColor: '#ED6263', borderBottomWidth: 1, height: 35 }} secureTextEntry={true} placeholder="Re-enter your password" placeholderTextColor={"rgba(0, 0, 0, 0.6)"}></TextInput>
-                   <Text style={{color: 'red', fontSize: fontSizes.h6, marginTop: 5}}>{passwordError}</Text>
+                    <Text style={{ color: 'red', fontSize: fontSizes.h6, marginTop: 5 }}>{rePasswordError}</Text>
                 </View>
                 <TouchableOpacity
                     disabled={isValidation() === false}

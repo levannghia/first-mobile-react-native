@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Image, ImageBackground, Text, View, TouchableOpacity } from 'react-native'
 import { images, icons } from '../constants/index.js'
 import { UiButton } from '../components';
-import {fontSizes} from '../constants'
+import { fontSizes } from '../constants'
 
 function WelcomeScreen() {
   const [accountTypes, SetAcountTypes] = useState([
@@ -101,9 +101,9 @@ function WelcomeScreen() {
             flex: 20
           }}
         >
-          <UiButton title={"Login".toUpperCase()}/>
+          <UiButton title={"Login".toUpperCase()} />
           <Text style={{ color: 'white', fontSize: fontSizes.h5, alignSelf: 'center' }}>Want to regiter new account ?</Text>
-          <TouchableOpacity onPress={() => {alert("Press Register")}} style={{padding: 5}}>
+          <TouchableOpacity onPress={() => { alert("Press Register") }} style={{ padding: 5 }}>
             <Text style={{ color: '#ED6263', fontSize: fontSizes.h5, alignSelf: 'center', textDecorationLine: 'underline' }}>Register</Text>
           </TouchableOpacity>
         </View>
