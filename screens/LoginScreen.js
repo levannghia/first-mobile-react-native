@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { Image, Text, TextInput, TouchableOpacity, View, Keyboard, KeyboardAvoidingView, Platform, ScrollView } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import { isValidEmail, isValidPassword } from "../utilies/Validations"
+import { isValidEmail, isValidPassword } from "../utilies/validations"
 import { fontSizes } from "../constants"
 
 function LoginScreen(props) {
@@ -35,7 +35,10 @@ function LoginScreen(props) {
                 flex: 100,
                 backgroundColor: 'white',
             }}>
-            <ScrollView>
+            <ScrollView contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: 'space-between',
+            }}>
                 <View
                     style={{
                         flex: 30,
