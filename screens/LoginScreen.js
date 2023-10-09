@@ -18,6 +18,10 @@ function LoginScreen(props) {
         }
         return false
     }
+
+    const {navigation, route} = props
+    const {navigate, goBack} = navigation
+
     useEffect(() => {
         Keyboard.addListener('keyboardDidShow', () => {
             setkeyboardIsShow(true)
@@ -87,7 +91,7 @@ function LoginScreen(props) {
                     <TouchableOpacity
                         disabled={isValidation() === false}
                         onPress={() => {
-                            alert(`email: ${email}, password: ${password}`)
+                            navigate('UITab')
                         }}
                         style={{
                             backgroundColor: isValidation() === true ? '#ED6263' : 'gray',

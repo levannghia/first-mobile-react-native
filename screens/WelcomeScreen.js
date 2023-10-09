@@ -6,7 +6,7 @@ import { images, icons } from '../constants/index.js'
 import { UiButton } from '../components';
 import { fontSizes } from '../constants'
 
-function WelcomeScreen() {
+function WelcomeScreen(props) {
   const [accountTypes, SetAcountTypes] = useState([
     {
       name: 'Influencer',
@@ -21,6 +21,9 @@ function WelcomeScreen() {
       isSelected: false
     },
   ])
+  const {navigation, route} = props
+  const {navigate, goBack} = navigation
+  console.log(props)
   return (
     <View style={{
       flex: 100,
@@ -101,7 +104,7 @@ function WelcomeScreen() {
             flex: 20
           }}
         >
-          <UiButton title={"Login".toUpperCase()} />
+          <UiButton onPress={() => {navigate('LoginScreen')}} title={"Login".toUpperCase()} />
           <Text style={{ color: 'white', fontSize: fontSizes.h5, alignSelf: 'center' }}>Want to regiter new account ?</Text>
           <TouchableOpacity onPress={() => { alert("Press Register") }} style={{ padding: 5 }}>
             <Text style={{ color: '#ED6263', fontSize: fontSizes.h5, alignSelf: 'center', textDecorationLine: 'underline' }}>Register</Text>
